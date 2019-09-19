@@ -1,0 +1,18 @@
+<h1>To do list:</h1>
+
+<ul>
+  {% for item in allitems %}
+    <li>{{item.content}}</li>
+    <form action='/deletetodo/{{item.id}}/'
+      {display: inline-block;}
+      method='POST'>{% csrf_token %}
+      <input type="submit" value="Delete"/>
+    </form>
+  {% endfor %}
+
+</ul>
+
+<form action='/addtodo/' method='POST'>{% csrf_token %}
+  <input type="text" name="content"/>
+  <input type="submit" value="Add"/>
+</form>
